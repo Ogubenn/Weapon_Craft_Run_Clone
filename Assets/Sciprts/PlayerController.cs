@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
         Vector3 Movement = yon * forwordSpeed * Time.deltaTime;
         transform.position += Movement;
     }

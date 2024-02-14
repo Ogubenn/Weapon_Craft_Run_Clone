@@ -7,6 +7,10 @@ TagManager:
   - Ground
   - Revolver
   - Bullet
+  - RedGate
+  - GreenGate
+  - Gun
+  - Touch
   layers:
   - Default
   - TransparentFX

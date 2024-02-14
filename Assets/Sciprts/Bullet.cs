@@ -9,9 +9,11 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 20f;
     [Range(0f,5f)]
     public float fireRate = 0.5f; // Ateþ etme aralýðý
+    public float swapFireRate = 0f; //Yedek ateþ etme sýklýðý
     public float DestroyBullet = 2f;
 
     private float nextFireTime = 0f; // Bir sonraki ateþ zamaný
+
 
     void Update()
     {
@@ -31,5 +33,14 @@ public class Bullet : MonoBehaviour
         Destroy(bullet, DestroyBullet);
 
         /*"Instantiate", Unity oyun motorunda yeni bir nesne veya öðe oluþturmak için kullanýlan bir fonksiyondur. Bu fonksiyon, prefabslarýn oluþturur ve bu kopyayý sahneye veya hiyerarþiye ekler.*/
+    }
+    public void FireRateÝncrase()
+    {
+        swapFireRate += 0.1f;
+    }
+
+    public void FireRateUpdate()
+    {
+        fireRate = fireRate + swapFireRate;
     }
 }
