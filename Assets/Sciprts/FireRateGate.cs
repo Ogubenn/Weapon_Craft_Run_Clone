@@ -18,6 +18,12 @@ public class FireRateGate : MonoBehaviour
             bulletScrpit.FireRateÝncrase();
             GateTextUpdate();
         }
+        if (hit.gameObject.CompareTag("Gun"))
+        {
+            Debug.Log("FireRateUpdate gerçekleþti");
+            bulletScrpit.FireRateUpdate();
+            gameObject.SetActive(false);
+        }
     }
 
     public void GateTextUpdate()

@@ -11,6 +11,7 @@ TagManager:
   - GreenGate
   - Gun
   - Touch
+  - Magazine
   layers:
   - Default
   - TransparentFX

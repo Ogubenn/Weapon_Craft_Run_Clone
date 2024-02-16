@@ -36,11 +36,12 @@ public class Bullet : MonoBehaviour
     }
     public void FireRate›ncrase()
     {
-        swapFireRate += 0.1f;
+        swapFireRate += 0.01f;
     }
 
     public void FireRateUpdate()
     {
-        fireRate = fireRate + swapFireRate;
+        
+        fireRate = fireRate - swapFireRate;
     }
 }
