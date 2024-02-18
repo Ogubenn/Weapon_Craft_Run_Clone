@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class Slider : MonoBehaviour
 {
-    public GameObject Magazine;
-    private Animator anim;
-    public Magazine magazinescript;
-
     [Header("Levels")]
     public GameObject Level1;
     public GameObject Level2;
     public GameObject Level3;
+    private BoxCollider bc;
+    public GameObject playerSawedOff;
+    public MagazineAnim magazineAnimScript;
 
     private void Awake()
     {
-        anim = Magazine.GetComponent<Animator>();
+        bc = GetComponent<BoxCollider>();
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider hit)
     {
-        if(magazinescript.magazine›ncrese›nt == 6)
+        if(hit.CompareTag("Gun") && magazineAnimScript.SawedOffBool)
         {
-            anim.SetTrigger("MagazineGo");
-        }
-        if(magazinescript.sliderGreenBool == 2)
-        {
-            Level1.GetComponent<MeshRenderer>().material.color = Color.green;
+            playerSawedOff.SetActive(true);
         }
     }
 

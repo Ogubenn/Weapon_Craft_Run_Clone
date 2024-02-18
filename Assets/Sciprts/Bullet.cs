@@ -8,18 +8,18 @@ public class Bullet : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
     [Range(0f,5f)]
-    public float fireRate = 0.5f; // Ateþ etme aralýðý
-    public float swapFireRate = 0f; //Yedek ateþ etme sýklýðý
+    public float fireRate = 0.5f; 
+    public float swapFireRate = 0f; 
     public float DestroyBullet = 2f;
 
-    private float nextFireTime = 0f; // Bir sonraki ateþ zamaný
+    private float nextFireTime = 0f; 
 
 
     void Update()
     {
         if (Time.time >= nextFireTime)
         {
-            //Time.time oyun baþladýktan sonra geçen süreyi saniye cinsinden belirtir.
+          
             Fire();
             nextFireTime = Time.time + fireRate;
         }
@@ -27,12 +27,10 @@ public class Bullet : MonoBehaviour
 
     void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);//UInstantiate parametreleri neyi oluþturcaðýmýz,positionu ve rotationu.
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.forward * bulletSpeed, ForceMode.Impulse);//Impulse nesneye anlýk olarak kuvvet uygular.
+        rb.AddForce(firePoint.forward * bulletSpeed, ForceMode.Impulse);
         Destroy(bullet, DestroyBullet);
-
-        /*"Instantiate", Unity oyun motorunda yeni bir nesne veya öðe oluþturmak için kullanýlan bir fonksiyondur. Bu fonksiyon, prefabslarýn oluþturur ve bu kopyayý sahneye veya hiyerarþiye ekler.*/
     }
     public void FireRateÝncrase()
     {
