@@ -7,19 +7,21 @@ public class Bullet : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
-    [Range(0f,5f)]
-    public float fireRate = 0.5f; 
-    public float swapFireRate = 0f; 
+    [Range(0f, 5f)]
+    public float fireRate = 0.5f;
+    public float swapFireRate = 0f;
     public float DestroyBullet = 2f;
+    public FireRateGate fireRateScript;
 
-    private float nextFireTime = 0f; 
+
+    private float nextFireTime = 0f;
 
 
     void Update()
     {
         if (Time.time >= nextFireTime)
         {
-          
+
             Fire();
             nextFireTime = Time.time + fireRate;
         }
@@ -34,12 +36,20 @@ public class Bullet : MonoBehaviour
     }
     public void FireRate›ncrase()
     {
-        swapFireRate += 0.01f;
+        if (fireRateScript.FireRate›ncreasedNumber == 1)
+        {
+            swapFireRate += 0.01f;
+
+        }
+        if (fireRateScript.FireRate›ncreasedNumber == 5)
+        {
+            swapFireRate += 0.05f;
+
+        }
     }
 
     public void FireRateUpdate()
     {
-        
         fireRate = fireRate - swapFireRate;
     }
 }

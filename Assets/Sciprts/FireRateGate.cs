@@ -9,6 +9,7 @@ public class FireRateGate : MonoBehaviour
     public Bullet bulletScrpit;
     public TextMeshPro ›ncreasedText;
     private int ›ncraesedTextSwap = 1;
+    public int FireRate›ncreasedNumber = 1;
 
 
     public void OnTriggerEnter(Collider hit)
@@ -28,7 +29,7 @@ public class FireRateGate : MonoBehaviour
 
     public void GateTextUpdate()
     {
-        ›ncraesedTextSwap += 1;
+        ›ncraesedTextSwap += FireRate›ncreasedNumber;
         ›ncreasedText.text = ›ncraesedTextSwap.ToString();
         
     }

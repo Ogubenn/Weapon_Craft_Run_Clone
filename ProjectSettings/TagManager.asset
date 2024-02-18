@@ -13,6 +13,8 @@ TagManager:
   - Touch
   - Magazine
   - GunSlider
+  - Rect
+  - Money
   layers:
   - Default
   - TransparentFX
